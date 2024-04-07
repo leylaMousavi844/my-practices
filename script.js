@@ -505,68 +505,25 @@ var counter = {
     13: { available: true },
 };
 
-// let newProducts=[]
-// for (let index = 0; index < products.length; index++) {
-//     for (let key in counter) {
-//        if(products[index].id==key){
-//         newProducts.push({...products[index],...counter[key]})
+let newProducts=[]
+for (let index = 0; index < products.length; index++) {
+    for (let key in counter) {
+       if(products[index].id==key){
+        newProducts.push({...products[index],...counter[key]})
 
-//        }
-//     }
+       }
+    }
 
-// }
-// console.log(newProducts);
+}
+console.log(newProducts);
 
 // another way :
-const result = products.map(item => ({ ...item, ...counter[item.id] }))
-console.log(result)
+// const result = products.map(item => ({ ...item, ...counter[item.id] }))
+// console.log(result)
 
 
 
 
-
-
-// practice6:
-var hero = [
-    { id: 1, heroName: 'hero one' },
-    { id: 2, heroName: 'hero two' },
-    { id: 3, heroName: 'hero three' }
-]
-var abilitie = {
-    1: { abilities: [' power ', ' speed ', ' jump '], src: './image/hero1.jpg' },
-    2: { abilities: [' fire ', ' knife ', ' bomb '], src: './image/hero2.jpg' },
-    3: { abilities: [' gun ', ' hidden ', ' map '], src: './image/hero3.jpg' }
-}
-
-
-const heroes = hero.map(item => ({ ...item, ...abilitie[item.id] }))
-console.log(heroes)
-heroes.forEach(item => {
-let mainElement=document.getElementById("main")
-
-let parent=document.createElement("div")
-mainElement.appendChild(parent);
-let image=document.createElement("img")
-parent.appendChild(image);
-image.src=item.src; 
-image.style.width="300px";
-image.style.height="190px";
-let heroNames=document.createElement("h2");
-parent.appendChild(heroNames);
-heroNames.innerText=item.heroName;
-
-let abilities=document.createElement("ul");
-abilities.style.listStyle="none"
-let title=document.createElement("h3")
-abilities.appendChild(title);
-title.innerText="abilities:"
-parent.appendChild(abilities);
-item.abilities.forEach(index=>{
-let liItem=document.createElement("li");
-abilities.appendChild(liItem);
-liItem.innerText=index;  
-})
-})
 
 
 
